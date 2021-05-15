@@ -1,13 +1,13 @@
-package com.jpa.shop;
+package com.jpa.study;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class JpaShopApplication {
+public class JpaStudyApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(JpaShopApplication.class, args);
+		SpringApplication.run(JpaStudyApplication.class, args);
 	}
 
 }
