@@ -17,7 +17,7 @@ public class JpaMain {
         EntityManagerFactory emf = Persistence.createEntityManagerFactory("jpabook");
         // 엔티티 매니저 생성
         EntityManager em = emf.createEntityManager();
-        // 트랜잭션  획득
+        // 트랜잭션 획득
         EntityTransaction tx = em.getTransaction();
 
         try {
