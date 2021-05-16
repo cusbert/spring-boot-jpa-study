@@ -1,5 +1,7 @@
 package com.jpa.study.ch2;
 
+import lombok.ToString;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
@@ -7,6 +9,7 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name="MEMBER")
+@ToString
 public class Member {
 
     @Id
