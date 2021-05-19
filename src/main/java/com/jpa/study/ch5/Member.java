@@ -20,9 +20,15 @@ public class Member {
     @Column(name = "AGE", nullable = false)
     private Integer age;
 
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "TEAM_ID")
     private Team team;
+
+    public Member(String id, String username, Integer age) {
+        this.id = id;
+        this.username = username;
+        this.age = age;
+    }
 
     public String getId() {
         return id;
@@ -53,6 +59,13 @@ public class Member {
     }
 
     public void setTeam(Team team) {
+
+        // 기존 팀과 관계를 제거
+        if (this.team != null) {
+            this.team.getMembers().remove(this);
+        }
+
         this.team = team;
+        team.getMembers().add(this); // 양방향 설정을 위함
     }
 }
