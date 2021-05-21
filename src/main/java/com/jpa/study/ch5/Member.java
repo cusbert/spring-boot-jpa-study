@@ -21,16 +21,16 @@ public class Member {
     @Column(name="USER_NAME", nullable = false)
     private String username;
 
-    @Column(name = "AGE", nullable = false)
+    @Column(name = "AGE", nullable = true)
     private Integer age;
 
-    @Column(name = "CITY", nullable = false)
+    @Column(name = "CITY", nullable = true)
     private String city;
 
-    @Column(name = "STREET", nullable = false)
+    @Column(name = "STREET", nullable = true)
     private String street;
 
-    @Column(name = "ZIP_CD", nullable = false)
+    @Column(name = "ZIP_CD", nullable = true)
     private String zipCode;
 
     // 연관관계의 주인은 Order -> 다 쪽이 주인
@@ -44,8 +44,7 @@ public class Member {
     @JoinColumn(name = "TEAM_ID")
     private Team team;
 
-    public Member(Long id, String username, Integer age) {
-        this.id = id;
+    public Member(String username, Integer age) {
         this.username = username;
         this.age = age;
     }

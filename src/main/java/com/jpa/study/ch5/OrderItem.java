@@ -8,14 +8,14 @@ public class OrderItem {
 
     @Id
     @GeneratedValue
-    @Column(name = "ORDER_ITEM_ID", nullable = false)
+    @Column(name = "ORDER_ITEM_ID")
     private Long id;
 
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "ITEM_ID")
     private Item item;
 
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "ORDER_ID")
     private Order order;
 

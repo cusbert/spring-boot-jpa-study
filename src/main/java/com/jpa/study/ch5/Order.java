@@ -14,11 +14,11 @@ public class Order {
     @Column(name = "ORDER_ID")
     private Long id;
 
-    @ManyToOne // 연관관계 주인은 Member
+    @ManyToOne(cascade = CascadeType.ALL) // 연관관계 주인은 Member
     @JoinColumn(name = "MEMBER_ID")
     private Member member;
 
-    @OneToMany(mappedBy = "order") // 연관관계 주인은 Order
+    @OneToMany(mappedBy = "order", cascade = CascadeType.ALL) // 연관관계 주인은 Order
     private List<OrderItem> orderItems = new ArrayList<OrderItem>();
 
     @Temporal(TemporalType.TIMESTAMP)
