@@ -2,8 +2,11 @@ package com.jpa.study.ch5;
 
 import lombok.AllArgsConstructor;
 import lombok.ToString;
+import org.aspectj.weaver.ast.Or;
 
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Table(name="MEMBER")
@@ -11,8 +14,9 @@ import javax.persistence.*;
 public class Member {
 
     @Id
+    @GeneratedValue
     @Column(name="MEMBER_ID", nullable = false)
-    private String id;
+    private Long id;
 
     @Column(name="USER_NAME", nullable = false)
     private String username;
@@ -20,21 +24,37 @@ public class Member {
     @Column(name = "AGE", nullable = false)
     private Integer age;
 
+    @Column(name = "CITY", nullable = false)
+    private String city;
+
+    @Column(name = "STREET", nullable = false)
+    private String street;
+
+    @Column(name = "ZIP_CD", nullable = false)
+    private String zipCode;
+
+    // 연관관계의 주인은 Order -> 다 쪽이 주인
+    // mappedBy = "member" 로 주인 아님을 설정
+    @OneToMany(mappedBy = "member", cascade = CascadeType.ALL)
+    private List<Order> orders = new ArrayList<Order>();
+
+    // 연관관계의 주인은 Member
+    // ManyToOne은 항상 연관 관계의 주인
     @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "TEAM_ID")
     private Team team;
 
-    public Member(String id, String username, Integer age) {
+    public Member(Long id, String username, Integer age) {
         this.id = id;
         this.username = username;
         this.age = age;
     }
 
-    public String getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
@@ -58,6 +78,39 @@ public class Member {
         return team;
     }
 
+    public String getCity() {
+        return city;
+    }
+
+    public void setCity(String city) {
+        this.city = city;
+    }
+
+    public String getStreet() {
+        return street;
+    }
+
+    public void setStreet(String street) {
+        this.street = street;
+    }
+
+    public String getZipCode() {
+        return zipCode;
+    }
+
+    public void setZipCode(String zipCode) {
+        this.zipCode = zipCode;
+    }
+
+    public List<Order> getOrders() {
+        return orders;
+    }
+
+    public void setOrders(List<Order> orders) {
+        this.orders = orders;
+    }
+
+    // 연관 관계 메소드
     public void setTeam(Team team) {
 
         // 기존 팀과 관계를 제거
@@ -68,4 +121,6 @@ public class Member {
         this.team = team;
         team.getMembers().add(this); // 양방향 설정을 위함
     }
+
+
 }

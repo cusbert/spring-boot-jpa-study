@@ -48,12 +48,12 @@ public class JpaMain {
 
 
         // 멤버1 저장
-        Member member1 = new Member("member1", "sheldon", 20);
+        Member member1 = new Member(1234l, "sheldon", 20);
         member1.setTeam(team); //  양방향 설정
         em.persist(member1);
 
         // 멤버2 저장
-        Member member2 = new Member("member2", "penny", 30);
+        Member member2 = new Member(5617l, "penny", 30);
         member2.setTeam(team); //  양방향 설정
         em.persist(member2);
 

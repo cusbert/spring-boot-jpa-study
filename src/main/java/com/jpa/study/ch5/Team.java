@@ -16,6 +16,8 @@ public class Team {
     @Column(name = "TEAM_NAME", nullable = false)
     private String name;
 
+    // 연관관계의 주인은 Member -> 다 쪽이 주인
+    // mappedBy="team" 으로 주인 아님을 설정
     @OneToMany(mappedBy = "team", cascade = CascadeType.ALL)
     private List<Member> members = new ArrayList<Member>();
 
