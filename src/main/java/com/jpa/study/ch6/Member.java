@@ -1,6 +1,7 @@
 package com.jpa.study.ch6;
 
 import lombok.ToString;
+import org.hibernate.query.criteria.internal.expression.function.AggregationFunction;
 
 import javax.persistence.*;
 
@@ -19,9 +20,14 @@ public class Member {
 
     // 연관관계의 주인은 Member
     // ManyToOne은 항상 연관 관계의 주인
+    // N:1 다대일 양방향 매핑을 사용하자
     @ManyToOne(cascade = CascadeType.ALL) // N:1 다대일 단방향
     @JoinColumn(name = "TEAM_ID")
     private Team team;
+
+    // 일대일 매핑
+    @OneToOne(mappedBy = "member")
+    private Locker locker;
 
 
     public Long getId() {
@@ -38,6 +44,14 @@ public class Member {
 
     public void setUsername(String username) {
         this.username = username;
+    }
+
+    public Locker getLocker() {
+        return locker;
+    }
+
+    public void setLocker(Locker locker) {
+        this.locker = locker;
     }
 
     public Team getTeam() {

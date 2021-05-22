@@ -4,6 +4,7 @@
     <persistence-unit name="jpabook">
         <class>com.jpa.study.ch6.Member</class>
         <class>com.jpa.study.ch6.Team</class>
+        <class>com.jpa.study.ch6.Locker</class>
 <!--        <class>com.jpa.study.ch5.Member</class>
         <class>com.jpa.study.ch5.Team</class>
         <class>com.jpa.study.ch5.Order</class>
@@ -25,8 +26,8 @@
             <property name="hibernate.use_sql_comments" value="true" />
             <property name="hibernate.id.new_generator_mappings" value="true" />
 
-            <property name="hibernate.hbm2ddl.auto" value="create"/>
-            <property name="hbm2ddl.auto" value="create" />
+            <property name="hibernate.hbm2ddl.auto" value="update"/>
+            <property name="hbm2ddl.auto" value="update" />
         </properties>
     </persistence-unit>
 
