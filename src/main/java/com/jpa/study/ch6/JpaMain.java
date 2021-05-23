@@ -6,7 +6,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.EntityTransaction;
 import javax.persistence.Persistence;
-import java.util.List;
+import java.util.Date;
 
 @SpringBootApplication
 public class JpaMain {
@@ -43,40 +43,37 @@ public class JpaMain {
 
     private static void testSave(EntityManager em) {
         // 팀 저장
-        Team team = new Team();
-        team.setName("팀1");
-        em.persist(team);
-
-        Team team2 = new Team();
-        team2.setName("팀2");
-        em.persist(team2);
+        Team team1 = new Team();
+        team1.setName("팀1");
+        em.persist(team1);
 
         // 멤버1 저장
         Member member1 = new Member();
         member1.setUsername("sheldon");
-        member1.setTeam(team); //  양방향 설정
+        member1.setTeam(team1); //  양방향 설정
         em.persist(member1);
 
-        // 멤버2 저장
-        Member member2 = new Member();
-        member2.setUsername("penny");
-        member2.setTeam(team); //  양방향 설정
-        em.persist(member2);
+        Order order1 = new Order();
+        order1.setMember(member1);
+        order1.setOrderStatus(OrderStatus.ORDER);
+        order1.setOrderDate(new Date());
+        em.persist(order1);
+
+        Delivery delivery1 = new Delivery();
+        delivery1.setDeliveryStatus(DeliveryStatus.READY);
+        delivery1.setOrder(order1);
+        em.persist(delivery1);
+
+        OrderItem orderItem1 = new OrderItem();
+        orderItem1.setOrder(order1);
+        orderItem1.setOrderPrice(100);
+        em.persist(orderItem1);
 
         System.out.println("=== after insert");
+
         System.out.println(member1.toString());
-        System.out.println(member2.toString());
+        System.out.println(order1.toString());
 
-        // 팀 변경
-
-        member1.setTeam(team2);
-        List<Member> findMember = team.getMembers(); // 계속 team1 에 조회됨
-
-        System.out.println(findMember.toString());
-
-        System.out.println("===");
-        System.out.println(member1.toString());
-        System.out.println(member2.toString());
     }
 }
 

@@ -4,12 +4,13 @@
     <persistence-unit name="jpabook">
         <class>com.jpa.study.ch6.Member</class>
         <class>com.jpa.study.ch6.Team</class>
+        <class>com.jpa.study.ch6.Order</class>
+        <class>com.jpa.study.ch6.OrderItem</class>
+        <class>com.jpa.study.ch6.Item</class>
         <class>com.jpa.study.ch6.Locker</class>
-<!--        <class>com.jpa.study.ch5.Member</class>
-        <class>com.jpa.study.ch5.Team</class>
-        <class>com.jpa.study.ch5.Order</class>
-        <class>com.jpa.study.ch5.OrderItem</class>
-        <class>com.jpa.study.ch5.Item</class>-->
+        <class>com.jpa.study.ch6.Delivery</class>
+        <class>com.jpa.study.ch6.OrderStatus</class>
+        <class>com.jpa.study.ch6.DeliveryStatus</class>
 
         <properties>
 

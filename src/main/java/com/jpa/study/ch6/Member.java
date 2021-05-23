@@ -1,13 +1,17 @@
 package com.jpa.study.ch6;
 
+import lombok.Getter;
+import lombok.Setter;
 import lombok.ToString;
-import org.hibernate.query.criteria.internal.expression.function.AggregationFunction;
 
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Table(name="MEMBER")
-@ToString
+@Setter
+@Getter
 public class Member {
 
     @Id
@@ -25,48 +29,38 @@ public class Member {
     @JoinColumn(name = "TEAM_ID")
     private Team team;
 
+    // 연관관계의 주인은 Order -> 다 쪽이 주인
+    // mappedBy = "member" 로 주인 아님을 설정
+    @OneToMany(mappedBy = "member", cascade = CascadeType.ALL)
+    private List<Order> orders = new ArrayList<Order>();
+
     // 일대일 매핑
     @OneToOne(mappedBy = "member")
     private Locker locker;
 
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public String getUsername() {
-        return username;
-    }
-
-    public void setUsername(String username) {
-        this.username = username;
-    }
-
-    public Locker getLocker() {
-        return locker;
-    }
-
-    public void setLocker(Locker locker) {
-        this.locker = locker;
-    }
-
-    public Team getTeam() {
-        return team;
-    }
-
     // 연관 관계 메소드
     public void setTeam(Team team) {
 
+        // 기존 팀과 관계를 제거
+        if (this.team != null) {
+            this.team.getMembers().remove(this);
+        }
+
         this.team = team;
-        // 무한 루트레 빠지지 않도록 설정
+        // 무한 루트에 빠지지 않도록 설정
         if (!team.getMembers().contains(this)) {
             team.getMembers().add(this);
         }
     }
 
-
+    @Override
+    public String toString() {
+        return "Member{" +
+                "id=" + id +
+                ", username='" + username + '\'' +
+                ", team=" + team +
+                ", orders=" + orders +
+                ", locker=" + locker +
+                '}';
+    }
 }

@@ -1,12 +1,17 @@
 package com.jpa.study.ch6;
 
 
+import lombok.Getter;
+import lombok.Setter;
+
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
 
 @Entity
 @Table(name = "TEAM")
+@Getter
+@Setter
 public class Team {
 
     @Id
@@ -40,30 +45,6 @@ public class Team {
         if (member.getTeam() != this) {
             member.setTeam(this);
         }
-    }
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public List<Member> getMembers() {
-        return members;
-    }
-
-    public void setMembers(List<Member> members) {
-        this.members = members;
     }
 
     @Override
