@@ -2,15 +2,8 @@
 <persistence xmlns="http://xmlns.jcp.org/xml/ns/persistence" version="2.1">
 
     <persistence-unit name="jpabook">
-        <class>com.jpa.study.ch6.Member</class>
-        <class>com.jpa.study.ch6.Team</class>
-        <class>com.jpa.study.ch6.Order</class>
-        <class>com.jpa.study.ch6.OrderItem</class>
-        <class>com.jpa.study.ch6.Item</class>
-        <class>com.jpa.study.ch6.Locker</class>
-        <class>com.jpa.study.ch6.Delivery</class>
-        <class>com.jpa.study.ch6.OrderStatus</class>
-        <class>com.jpa.study.ch6.DeliveryStatus</class>
+        <class>com.jpa.study.ch8.Member</class>
+        <class>com.jpa.study.ch8.Team</class>
 
         <properties>
 
