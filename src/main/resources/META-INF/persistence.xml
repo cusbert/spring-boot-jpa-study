@@ -4,7 +4,10 @@
     <persistence-unit name="jpabook">
         <class>com.jpa.study.ch8.Member</class>
         <class>com.jpa.study.ch8.Team</class>
-
+        <class>com.jpa.study.ch8.Order</class>
+        <class>com.jpa.study.ch8.OrderItem</class>
+        <class>com.jpa.study.ch8.Delivery</class>
+        <class>com.jpa.study.ch8.Item</class>
         <properties>
 
             <!-- 필수 속성 -->
