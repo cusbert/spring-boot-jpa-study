@@ -1,7 +1,6 @@
 package com.jpa.shop.domain;
 
 import lombok.Getter;
-import org.apache.tomcat.jni.Address;
 
 import javax.persistence.*;
 import java.util.ArrayList;
