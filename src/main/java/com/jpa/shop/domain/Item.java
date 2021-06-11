@@ -1,6 +1,6 @@
 package com.jpa.shop.domain;
 
-import com.jpa.shop.exception.NotEnotuhStockExeption;
+import com.jpa.shop.exception.NotEnoughStockException;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -41,7 +41,7 @@ public abstract class Item {
         int restStock = this.stockQuantity - quantity;
 
         if (restStock < 0) {
-            throw new NotEnotuhStockExeption("need more stock");
+            throw new NotEnoughStockException("need more stock");
         }
         this.stockQuantity = restStock;
     }
