@@ -3,12 +3,16 @@ package com.jpa.shop.service.impl;
 import com.jpa.shop.domain.*;
 import com.jpa.shop.repository.MemberRepository;
 import com.jpa.shop.repository.OrderRepository;
+import com.jpa.shop.service.ItemService;
 import com.jpa.shop.service.OrderService;
 import org.springframework.beans.factory.annotation.Autowired;
-import com.jpa.shop.service.ItemService;
+import org.springframework.stereotype.Service;
 
+import javax.transaction.Transactional;
 import java.util.List;
 
+@Service
+@Transactional
 public class OrderServiceImpl implements OrderService {
 
     @Autowired

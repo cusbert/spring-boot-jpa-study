@@ -4,9 +4,13 @@ import com.jpa.shop.domain.Item;
 import com.jpa.shop.repository.ItemRepository;
 import com.jpa.shop.service.ItemService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
+import javax.transaction.Transactional;
 import java.util.List;
 
+@Service
+@Transactional
 public class itemServiceImpl implements ItemService {
 
     @Autowired
