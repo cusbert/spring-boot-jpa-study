@@ -72,3 +72,47 @@ CREATE TABLE IF NOT EXISTS `category_item` (
 	CONSTRAINT `FK_CATEGORY_ID` FOREIGN KEY (`category_id`) REFERENCES `testdb`.`category` (`category_id`) ON UPDATE RESTRICT ON DELETE RESTRICT,
 	CONSTRAINT `FK_ITEM_ID` FOREIGN KEY (`item_id`) REFERENCES `testdb`.`item` (`item_id`) ON UPDATE RESTRICT ON DELETE RESTRICT
 ) COLLATE='utf8_general_ci' ENGINE=INNODB;
+
+
+-- Insert data
+-- member
+insert into member (member_id, user_name, city, street, zip_code)
+VALUES (1, 'Chris Pine', '서울시', '어긴가', '1234');
+insert into member (member_id, user_name, city, street, zip_code)
+VALUES (2, 'Tom Hardy', '인천시', '바닷가', '1234');
+
+-- item
+INSERT into item (dtype, item_id, item_name, price, stck_qnty, actor, director, author, isbn)
+VALUES ('A', 1, 'peaches', 10000, 10, NULL, NULL, 'Bieber', null );
+INSERT into item (dtype, item_id, item_name, price, stck_qnty, actor, director, author, isbn)
+VALUES ('A', 2, 'teenage dream', 9999, 9, NULL, NULL, 'Perry', null );
+INSERT into item (dtype, item_id, item_name, price, stck_qnty, actor, director, author, isbn)
+VALUES ('A', 3, 'purpose', 5000, 30, NULL, NULL, 'Bieber', null );
+INSERT into item (dtype, item_id, item_name, price, stck_qnty, actor, director, author, isbn)
+VALUES ('M', 4, 'Star trek', 15000, 20, 'Chris Pine', 'JJ', NULL, null );
+
+-- delivery
+INSERT into delivery (delivery_id, city, street, zip_code, STATUS)
+VALUES (1, '서울시', '1번가', NULL, 'READY');
+INSERT into delivery (delivery_id, city, street, zip_code, STATUS)
+VALUES (2, '서울시', '2번가', NULL, 'READY');
+INSERT into delivery (delivery_id, city, street, zip_code, STATUS)
+VALUES (3, '서울시', '3번가', NULL, 'READY');
+
+-- orders
+INSERT into orders (order_id, order_date, order_status, delivery_id, member_id)
+VALUES (1, NOW(), 'ORDER', 1, 1);
+INSERT into orders (order_id, order_date, order_status, delivery_id, member_id)
+VALUES (2, NOW(), 'CANCEL', 2, 1);
+INSERT into orders (order_id, order_date, order_status, delivery_id, member_id)
+VALUES (3, NOW(), 'ORDER', 3, 2);
+
+-- order_item
+INSERT into order_item (order_item_id, order_count, order_price, item_id, order_id)
+VALUES (1, 1, 10000, 1, 1);
+INSERT into order_item (order_item_id, order_count, order_price, item_id, order_id)
+VALUES (2, 1, 9999, 2, 1);
+INSERT into order_item (order_item_id, order_count, order_price, item_id, order_id)
+VALUES (3, 2, 5000, 3, 2);
+INSERT into order_item (order_item_id, order_count, order_price, item_id, order_id)
+VALUES (4, 1, 15000, 4, 3);
