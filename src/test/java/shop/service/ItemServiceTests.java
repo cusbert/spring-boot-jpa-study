@@ -31,7 +31,7 @@ public class ItemServiceTests {
         Album item = new Album();
         item.setId(1l);
         item.setStockQuantity(1);
-        item.setDirector("Steve");
+        item.setArtist("Steve");
 
         // when
         itemService.saveItem(item);
@@ -40,7 +40,7 @@ public class ItemServiceTests {
         Album findItem = (Album) itemRepository.findOne(1l);
 
         assertEquals(item.getId(), findItem.getId());
-        assertEquals(item.getDirector(), findItem.getDirector());
+        assertEquals(item.getArtist(), findItem.getArtist());
     }
 
     @Test
