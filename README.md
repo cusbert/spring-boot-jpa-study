@@ -4,9 +4,10 @@
 
 ## 개발 환경
 - java : openjdk 11.0.2
-- framework: Spring Boot 2.4.1
+- framework : Spring Boot 2.4.1
 - DB : maria DB 10.5.9
 - build : Gradle
+- test : JUnit 5.7.1
 
 ## 목차
 - [TO DO](https://github.com/cusbert/spring-boot-jpa-study/blob/main/index.md)
