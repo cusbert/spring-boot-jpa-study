@@ -17,6 +17,8 @@ CREATE TABLE IF NOT EXISTS `item` (
 	`director` VARCHAR(255) NULL DEFAULT NULL COLLATE 'utf8_general_ci',
 	`author` VARCHAR(255) NULL DEFAULT NULL COLLATE 'utf8_general_ci',
 	`isbn` VARCHAR(255) NULL DEFAULT NULL COLLATE 'utf8_general_ci',
+	`artist` VARCHAR(255) NULL DEFAULT NULL COLLATE 'utf8_general_ci',
+	`etc` VARCHAR(255) NULL DEFAULT NULL COLLATE 'utf8_general_ci',
 	PRIMARY KEY (`item_id`)
 ) COLLATE='utf8_general_ci' ENGINE=INNODB;
 
@@ -82,14 +84,15 @@ insert into member (member_id, user_name, city, street, zip_code)
 VALUES (2, 'Tom Hardy', '인천시', '바닷가', '1234');
 
 -- item
-INSERT into item (dtype, item_id, item_name, price, stck_qnty, actor, director, author, isbn)
-VALUES ('A', 1, 'peaches', 10000, 10, NULL, NULL, 'Bieber', null );
-INSERT into item (dtype, item_id, item_name, price, stck_qnty, actor, director, author, isbn)
-VALUES ('A', 2, 'teenage dream', 9999, 9, NULL, NULL, 'Perry', null );
-INSERT into item (dtype, item_id, item_name, price, stck_qnty, actor, director, author, isbn)
-VALUES ('A', 3, 'purpose', 5000, 30, NULL, NULL, 'Bieber', null );
-INSERT into item (dtype, item_id, item_name, price, stck_qnty, actor, director, author, isbn)
-VALUES ('M', 4, 'Star trek', 15000, 20, 'Chris Pine', 'JJ', NULL, null );
+INSERT into item (dtype, item_id, item_name, price, stck_qnty, actor, director, author, isbn, artist, etc)
+VALUES ('A', 1, 'peaches', 10000, 10, NULL, NULL, NULL, NULL, 'Bieber', null );
+INSERT into item (dtype, item_id, item_name, price, stck_qnty, actor, director, author, isbn, artist, etc)
+VALUES ('A', 2, 'teenage dream', 9999, 9, NULL, NULL, NULL, NULL, 'Perry', null );
+INSERT into item (dtype, item_id, item_name, price, stck_qnty, actor, director, author, isbn, artist, etc)
+VALUES ('A', 3, 'purpose', 5000, 30, NULL, NULL, NULL, NULL, 'Bieber', null );
+INSERT into item (dtype, item_id, item_name, price, stck_qnty, actor, director, author, isbn, artist, etc)
+VALUES ('M', 4, 'Star trek', 15000, 20, 'Chris Pine', 'JJ', NULL, NULL, NULL, NULL );
+
 
 -- delivery
 INSERT into delivery (delivery_id, city, street, zip_code, STATUS)
