@@ -119,3 +119,18 @@ INSERT into order_item (order_item_id, order_count, order_price, item_id, order_
 VALUES (3, 2, 5000, 3, 2);
 INSERT into order_item (order_item_id, order_count, order_price, item_id, order_id)
 VALUES (4, 1, 15000, 4, 3);
+
+-- category
+INSERT into category (category_id, category_name, parent_id)
+VALUES (1, 'general', 1);
+
+
+-- category item
+INSERT into category_item (category_id, item_id)
+VALUES (1, 1);
+INSERT into category_item (category_id, item_id)
+VALUES (1, 2);
+INSERT into category_item (category_id, item_id)
+VALUES (1, 3);
+INSERT into category_item (category_id, item_id)
+VALUES (1, 4);
