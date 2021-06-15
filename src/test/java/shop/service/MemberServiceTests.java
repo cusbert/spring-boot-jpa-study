@@ -1,9 +1,9 @@
 package shop.service;
 
-import com.jpa.shop.JpaStudyApplication;
-import com.jpa.shop.domain.Member;
-import com.jpa.shop.repository.MemberRepository;
-import com.jpa.shop.service.MemberService;
+import com.jpa.study.ch11.JpaStudyApplication;
+import com.jpa.study.ch11.domain.Member;
+import com.jpa.study.ch11.repository.MemberRepository;
+import com.jpa.study.ch11.service.MemberService;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;

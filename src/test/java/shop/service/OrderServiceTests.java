@@ -1,11 +1,10 @@
 package shop.service;
 
-import com.jpa.shop.JpaStudyApplication;
-import com.jpa.shop.domain.*;
-import com.jpa.shop.exception.NotEnoughStockException;
-import com.jpa.shop.repository.OrderRepository;
-import com.jpa.shop.service.OrderService;
-import org.hibernate.jdbc.Expectations;
+import com.jpa.study.ch11.JpaStudyApplication;
+import com.jpa.study.ch11.domain.*;
+import com.jpa.study.ch11.exception.NotEnoughStockException;
+import com.jpa.study.ch11.repository.OrderRepository;
+import com.jpa.study.ch11.service.OrderService;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;

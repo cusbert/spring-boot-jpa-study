@@ -1,10 +1,10 @@
 package shop.service;
 
-import com.jpa.shop.JpaStudyApplication;
-import com.jpa.shop.domain.Album;
-import com.jpa.shop.domain.Item;
-import com.jpa.shop.repository.ItemRepository;
-import com.jpa.shop.service.ItemService;
+import com.jpa.study.ch11.JpaStudyApplication;
+import com.jpa.study.ch11.domain.Album;
+import com.jpa.study.ch11.domain.Item;
+import com.jpa.study.ch11.repository.ItemRepository;
+import com.jpa.study.ch11.service.ItemService;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.beans.factory.annotation.Autowired;
