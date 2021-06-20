@@ -8,7 +8,7 @@ import javax.persistence.EntityManagerFactory;
 import javax.persistence.EntityTransaction;
 import javax.persistence.Persistence;
 
-@SpringBootApplication
+// @SpringBootApplication
 public class Main {
 
     public static void main(String[] args) {

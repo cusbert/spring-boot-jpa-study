@@ -5,7 +5,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import javax.persistence.*;
 import java.util.List;
 
-@SpringBootApplication
+// @SpringBootApplication
 public class JpaMain {
 
     public static void main(String[] args) {
