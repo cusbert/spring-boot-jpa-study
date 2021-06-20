@@ -28,6 +28,6 @@ public class itemServiceImpl implements ItemService {
 
     @Override
     public Item fineOne(Long itemId) {
-        return itemRepository.findOne(itemId);
+        return itemRepository.findById(itemId).orElse(null);
     }
 }

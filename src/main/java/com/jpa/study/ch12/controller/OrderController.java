@@ -1,10 +1,10 @@
 package com.jpa.study.ch12.controller;
 
 
-import com.jpa.study.ch11.domain.RequestOrder;
-import com.jpa.study.ch11.service.ItemService;
-import com.jpa.study.ch11.service.MemberService;
-import com.jpa.study.ch11.service.OrderService;
+import com.jpa.study.ch12.domain.RequestOrder;
+import com.jpa.study.ch12.service.ItemService;
+import com.jpa.study.ch12.service.MemberService;
+import com.jpa.study.ch12.service.OrderService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

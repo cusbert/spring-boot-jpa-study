@@ -1,4 +1,5 @@
 package com.jpa.study.ch12.service.impl;
+
 import com.jpa.study.ch12.domain.*;
 import com.jpa.study.ch12.repository.MemberRepository;
 import com.jpa.study.ch12.repository.OrderRepository;
@@ -26,7 +27,7 @@ public class OrderServiceImpl implements OrderService {
     @Override
     public Long order(Long memberId, Long itemId, int count) {
         // 엔티티 조회 : member, item
-        Member member = memberRepository.findOne(memberId);
+        Member member = memberRepository.findById(memberId).orElse(null);;
         Item item = itemService.fineOne(itemId);
 
         // 2-1 배송정보 생성
@@ -44,12 +45,14 @@ public class OrderServiceImpl implements OrderService {
     @Override
     public void cancelOrder(Long orderId) {
         // 주문 엔티티 조회
-        Order order = orderRepository.findOne(orderId);
+
+        Order order = orderRepository.findById(orderId).orElse(null);
         order.cancel();
     }
 
     @Override
     public List<Order> findOrders(OrderSearch orderSearch) {
-        return orderRepository.findAll(orderSearch);
+        return orderRepository.findAll(orderSearch.toSpecification()); // Specification 조회
+        //return orderRepository.search(orderSearch);  // QueryDSL
     }
 }
