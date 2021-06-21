@@ -9,8 +9,9 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 
 @SpringBootApplication
-/*@EntityScan(basePackages = {"com.jpa.study.ch12"})
-@EnableJpaRepositories("com.jpa.study.ch12")*/
+@ComponentScan("com.jpa.study.ch12")
+@EntityScan("com.jpa.study.ch12")
+@EnableJpaRepositories("com.jpa.study.ch12")
 public class JpaStudyApplication {
 
 	public static void main(String[] args) {
