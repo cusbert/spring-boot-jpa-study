@@ -1,6 +1,6 @@
 package com.jpa.study.ch12.domain;
 
-import com.jpa.study.ch11.exception.InvalidDeliveryStatusException;
+import com.jpa.study.ch12.exception.InvalidDeliveryStatusException;
 import lombok.Getter;
 import lombok.Setter;
 
