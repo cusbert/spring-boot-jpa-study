@@ -43,7 +43,6 @@ public class ItemServiceTests {
         assertEquals(item.getArtist(), findItem.getArtist());
     }
 
-    @Test
     public void findAllTest() {
         // given
         Item item1 = new Album();
